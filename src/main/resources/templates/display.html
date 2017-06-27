@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="home :: Mena">
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default" th:replace="home::navi"> </nav>
+
+            <table class="table table-hover">
+
+                <tr>
+                    <th>Date</th>
+                    <th>Full Name</th>
+                    <th>Account Number</th>
+                    <th>Balance</th>
+
+                </tr>
+                <div th:each="test : ${values}">
+
+                    <tr>
+                        <td th:text = "${#dates.format(test.date, 'MMM-dd-yyyy')}"></td>
+                        <td th:text = "${test.fullName}"></td>
+                        <td><p th:text = "${test.accountNo}"></p></td>
+                        <td th:text = "${test.balance}"></td>
+
+
+                    </tr>
+                </div>
+
+                <div th:each="with : ${AfterLogin}">
+
+                    <tr>
+                        <td th:text = "${#dates.format(with.date, 'MMM-dd-yyyy')}"></td>
+                        <td th:text = "${with.fullName}"></td>
+                        <td><p th:text = "${with.accountNo}"></p></td>
+                        <td th:text = "${with.balance}"></td>
+
+
+                    </tr>
+                </div>
+                <div th:each="with : ${successLogin}">
+
+                    <tr>
+                        <td th:text = "${#dates.format(with.date, 'MMM-dd-yyyy')}"></td>
+                        <td th:text = "${with.fullName}"></td>
+                        <td><p th:text = "${with.accountNo}"></p></td>
+                        <td th:text = "${with.balance}"></td>
+
+
+                    </tr>
+                </div>
+            </table>
+            <br/><br/>
+            <p><a href = "/deposit">Deposit</a></p>
+            <br/><br/>
+            <a href="/withdrawal">Withdraw</a>
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home :: Mena">
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-default" th:replace="home::navi"></nav>
+    <h1>Deposit</h1>
+    <form action="#" th:action="@{/deposit}" th:object="${customer}" method="post">
+        <div class="form-group">
+            <label for="amount">How much</label>
+            <input type="text" th:field="*{amount}" class="form-control" id="amount" placeholder="Finally" />
+        </div>
+
+        <button type="submit" class="btn btn-default">Save</button>
+
+    </form>
+
+</div>
+</body>
+</html>
